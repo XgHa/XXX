@@ -1,0 +1,71 @@
+import random,pickle
+import time
+
+print(f'now ：{time.ctime()}')
+time.sleep(0.2)
+print('Come on!Let's play a finger guess game!')
+time.sleep(0.5)
+
+dict1 = {1:'rock', 2:'scissors', 3:'paper'}
+dict2 = {'rock':1, 'scissors':2, 'paper':3}
+dict3 = {'rock':3, 'scissors':1, 'paper':2}
+
+s1 = 0
+s2 = 0
+s3 = 0
+
+moon = [1, 2, 3]
+
+for x in range(1000):
+    print()
+    you = input('Please choose one from (rock/scissors/paper)')
+    if you != 'rock' and you != 'scissors' and you != 'paper':
+        print('You can only choose rock or scissors or paper')
+        continue
+
+    me = random.choice(moon)
+
+    na = dict3[you] 
+    moon.append(na)  #simple learn
+
+    guess = dict1[me]
+    print()
+    print('I show……'+ guess)
+    time.sleep(0.5)
+    guess2 = dict2[you]
+    judge = int(me - guess2)
+    if judge == 0:
+        print('Draw')
+        s1 = s1 + 1
+    elif judge == 1 or judge == -2:
+        print('Awuwu, I lose')
+        s2 = s2 + 1
+    else:
+        print('AHA, I win')
+        s3 = s3 + 1
+    time.sleep(0.3)
+    
+    OnceAgain = int(input('Do you want play again？import 1 to play again, import 2 to settle accounts'))
+    if OnceAgain == 2:
+        print()
+        print('The final result:')
+        time.sleep(0.3)
+        print('You have played' + str(s1 + s2 + s3) + 'times')
+        print('You win' + str(s2) + 'times')
+        print('You lose' + str(s3) + 'times')
+        print('Draw' + str(s1) + 'times')
+        print()
+        time.sleep(0.5)
+        if s2 > s3:
+            print('WoW, you are so smart!')
+        elif s2 == s3:
+            print('HaHa, I wanna play with you again O∩_∩O')
+        else:
+            print('Yeh~You have lost to a computer!')
+        break
+    #if OnceAgain == 3:
+        #print(moon)
+    else:
+        continue
+
+input()  
