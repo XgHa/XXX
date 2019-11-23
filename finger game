@@ -1,4 +1,4 @@
-import random,pickle
+import random
 import time
 
 print(f'now ：{time.ctime()}')
