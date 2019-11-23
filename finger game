@@ -3,7 +3,7 @@ import time
 
 print(f'now ：{time.ctime()}')
 time.sleep(0.2)
-print('Come on!Let's play a finger guess game!')
+print('Come on!Let us play a finger guess game!')
 time.sleep(0.5)
 
 dict1 = {1:'rock', 2:'scissors', 3:'paper'}
